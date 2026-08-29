@@ -1,8 +1,8 @@
 *** Settings ***
 Documentation  Fluxul de adăugare în coș
-Resource  ../resources/pages/login_page.resource
-Resource  ../resources/pages/produse_page.resource
-Resource  ../resources/common.resource
+Resource  resources/pages/login_page.resource
+Resource  resources/pages/produse_page.resource
+Resource  resources/common.resource
 Test Setup  Deschide Aplicatia 
 Test Teardown  Inchide Aplicatia
 Test Tags  cumparaturi

@@ -1,126 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.7 on win32)" generated="2026-08-29T13:46:38.999027" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.14.7 on win32)" generated="2026-08-29T13:53:36.067495" rpa="false" schemaversion="5">
 <suite id="s1" name="Toolshop-Tests" source="D:\toolshop-tests">
 <suite id="s1-s1" name="Cumparaturi" source="D:\toolshop-tests\cumparaturi.robot">
 <test id="s1-s1-t1" name="Produsul Adaugat Apare In Cos" line="11">
 <kw name="Deschide Aplicatia" owner="common" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-08-29T13:46:39.540915" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com'.</msg>
+<msg time="2026-08-29T13:53:36.620982" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com'.</msg>
 <arg>${BASE_URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-08-29T13:46:39.540143" elapsed="2.116005"/>
+<status status="PASS" start="2026-08-29T13:53:36.620374" elapsed="2.130512"/>
 </kw>
 <kw name="Set Selenium Timeout" owner="SeleniumLibrary">
 <arg>${TIMEOUT}</arg>
 <doc>Sets the timeout that is used by various keywords.</doc>
-<status status="PASS" start="2026-08-29T13:46:41.656865" elapsed="0.012824"/>
+<status status="PASS" start="2026-08-29T13:53:38.751701" elapsed="0.016182"/>
 </kw>
-<status status="PASS" start="2026-08-29T13:46:39.538228" elapsed="2.132375"/>
+<status status="PASS" start="2026-08-29T13:53:36.618941" elapsed="2.149629"/>
 </kw>
 <kw name="Autentifica Utilizatorul" owner="login_page">
 <kw name="Pagina De Login Este Afisata" owner="login_page">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${INPUT_USER}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-08-29T13:46:41.674144" elapsed="0.139620"/>
+<status status="PASS" start="2026-08-29T13:53:38.773761" elapsed="0.413584"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
 <arg>${BTN_LOGIN}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2026-08-29T13:46:41.816417" elapsed="0.084659"/>
+<status status="PASS" start="2026-08-29T13:53:39.188006" elapsed="0.085318"/>
 </kw>
-<status status="PASS" start="2026-08-29T13:46:41.673095" elapsed="0.228439"/>
+<status status="PASS" start="2026-08-29T13:53:38.772962" elapsed="0.501276"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-08-29T13:46:41.903740" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<msg time="2026-08-29T13:53:39.275654" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
 <arg>${INPUT_USER}</arg>
 <arg>${user}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-08-29T13:46:41.902200" elapsed="0.165629"/>
+<status status="PASS" start="2026-08-29T13:53:39.274619" elapsed="0.171704"/>
 </kw>
 <kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-08-29T13:46:42.069502" level="INFO">Typing password into text field 'id=password'.</msg>
-<msg time="2026-08-29T13:46:42.104562" level="INFO">Temporally setting log level to: NONE</msg>
+<msg time="2026-08-29T13:53:39.449594" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg time="2026-08-29T13:53:39.495181" level="INFO">Temporally setting log level to: NONE</msg>
 <arg>${INPUT_PASSWORD}</arg>
 <arg>${password}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-08-29T13:46:42.068453" elapsed="0.109582"/>
+<status status="PASS" start="2026-08-29T13:53:39.448192" elapsed="0.140485"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-08-29T13:46:42.179402" level="INFO">Clicking button 'id=login-button'.</msg>
+<msg time="2026-08-29T13:53:39.589668" level="INFO">Clicking button 'id=login-button'.</msg>
 <arg>${BTN_LOGIN}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-08-29T13:46:42.178594" elapsed="0.174309"/>
+<status status="PASS" start="2026-08-29T13:53:39.589035" elapsed="0.150120"/>
 </kw>
 <arg>${USER}</arg>
 <arg>${PASSWORD}</arg>
-<status status="PASS" start="2026-08-29T13:46:41.671644" elapsed="0.681692"/>
+<status status="PASS" start="2026-08-29T13:53:38.771632" elapsed="0.967870"/>
 </kw>
 <kw name="Lista De Produse Este Afisata" owner="produse_page">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${LISTA_PRODUSE}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-08-29T13:46:42.354861" elapsed="0.070633"/>
+<status status="PASS" start="2026-08-29T13:53:39.744199" elapsed="0.091742"/>
 </kw>
-<status status="PASS" start="2026-08-29T13:46:42.353977" elapsed="0.072012"/>
+<status status="PASS" start="2026-08-29T13:53:39.743090" elapsed="0.093292"/>
 </kw>
 <kw name="Adauga Rucsacul In Cos" owner="produse_page">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${BTN_ADAUGA_RUCSAC}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-08-29T13:46:42.434736" elapsed="0.035571"/>
+<status status="PASS" start="2026-08-29T13:53:39.854695" elapsed="0.038778"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-08-29T13:46:42.471518" level="INFO">Clicking button 'id=add-to-cart-sauce-labs-backpack'.</msg>
+<msg time="2026-08-29T13:53:39.894568" level="INFO">Clicking button 'id=add-to-cart-sauce-labs-backpack'.</msg>
 <arg>${BTN_ADAUGA_RUCSAC}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-08-29T13:46:42.470755" elapsed="0.108767"/>
+<status status="PASS" start="2026-08-29T13:53:39.893946" elapsed="0.080053"/>
 </kw>
-<status status="PASS" start="2026-08-29T13:46:42.429412" elapsed="0.150793"/>
+<status status="PASS" start="2026-08-29T13:53:39.853875" elapsed="0.120390"/>
 </kw>
 <kw name="Cosul Contine" owner="produse_page">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${BADGE_COS}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-08-29T13:46:42.583474" elapsed="0.021312"/>
+<status status="PASS" start="2026-08-29T13:53:39.975452" elapsed="0.023575"/>
 </kw>
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-08-29T13:46:42.632003" level="INFO">${text} = 1</msg>
+<msg time="2026-08-29T13:53:40.027501" level="INFO">${text} = 1</msg>
 <var>${text}</var>
 <arg>${BADGE_COS}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-08-29T13:46:42.605114" elapsed="0.027548"/>
+<status status="PASS" start="2026-08-29T13:53:39.999500" elapsed="0.028275"/>
 </kw>
 <kw name="Should Be Equal As Numbers" owner="BuiltIn">
 <arg>${text}</arg>
 <arg>${numar}</arg>
 <doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="PASS" start="2026-08-29T13:46:42.633217" elapsed="0.001635"/>
+<status status="PASS" start="2026-08-29T13:53:40.029387" elapsed="0.002191"/>
 </kw>
 <arg>1</arg>
-<status status="PASS" start="2026-08-29T13:46:42.581743" elapsed="0.053549"/>
+<status status="PASS" start="2026-08-29T13:53:39.974846" elapsed="0.057306"/>
 </kw>
 <kw name="Inchide Aplicatia" owner="common" type="TEARDOWN">
 <kw name="Run Keyword If Test Failed" owner="BuiltIn">
 <arg>Capture Page Screenshot</arg>
 <doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2026-08-29T13:46:42.638894" elapsed="0.000666"/>
+<status status="PASS" start="2026-08-29T13:53:40.034003" elapsed="0.000875"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-08-29T13:46:42.639835" elapsed="2.486002"/>
+<status status="PASS" start="2026-08-29T13:53:40.035199" elapsed="2.372402"/>
 </kw>
-<status status="PASS" start="2026-08-29T13:46:42.637260" elapsed="2.489812"/>
+<status status="PASS" start="2026-08-29T13:53:40.033217" elapsed="2.374803"/>
 </kw>
 <tag>cumparaturi</tag>
 <tag>smoke</tag>
-<status status="PASS" start="2026-08-29T13:46:39.528275" elapsed="5.600078"/>
+<status status="PASS" start="2026-08-29T13:53:36.600305" elapsed="5.824263"/>
 </test>
 <doc>Fluxul de adăugare în coș</doc>
-<status status="PASS" start="2026-08-29T13:46:39.078833" elapsed="6.072332"/>
+<status status="PASS" start="2026-08-29T13:53:36.166766" elapsed="6.301711"/>
 </suite>
-<status status="PASS" start="2026-08-29T13:46:39.010212" elapsed="6.172469"/>
+<status status="PASS" start="2026-08-29T13:53:36.079262" elapsed="6.401485"/>
 </suite>
 <statistics>
 <total>
