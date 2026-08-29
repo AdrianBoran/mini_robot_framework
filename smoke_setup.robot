@@ -5,13 +5,15 @@ Library          RequestsLibrary
 Metadata         TICKET-1342     
 
 *** Variables ***
+${URL}        https://practicesoftwaretesting.com
 ${BROWSER}    chrome
+${OPTIUNI}    add_argument("--headless=new"); add_argument("--no-sandbox"); add_argument("--disable-dev-shm-usage")
 
 *** Test Cases *** 
 Browserul Porneste Si Aplicatia Raspunde
   [documentation]  AL DOILEA
   [Tags]  smoke REQ-101
-  Open Browser    https://practicesoftwaretesting.com    ${BROWSER}
+  Open Browser    ${URL}    ${BROWSER}    options=${OPTIUNI}
   Wait Until Page Contains    Toolshop    timeout=20s
   Close Browser
 
