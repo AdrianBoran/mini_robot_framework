@@ -1,0 +1,38 @@
+name: teste-robot-framework
+
+on:
+  push:               # la fiecare push
+  pull_request:       # la fiecare pull request
+  workflow_dispatch:  # si manual, dintr-un buton
+  schedule:
+  - cron: '0 3 * * *' # zilnic la 03:00 UTC
+
+jobs:
+  teste:
+  runs-on: ubuntu-latest
+
+steps:
+- name: Descarca codul
+  uses: actions/checkout@v4
+
+- name: Instaleaza Python
+  uses: actions/setup-python@v5
+  with:
+  python-version: '3.11'
+  
+- name: Instaleaza dependentele
+  run: pip install -r requirements.txt
+
+- name: Verifica sintaxa
+  run: robot --dryrun --outputdir results/dryrun .
+- name: Ruleaza testele de API
+  run: robot --outputdir results/api --include api .
+- name: Ruleaza testele de interfata
+  run: robot --outputdir results/ui --exclude api --variable BROWSER:headlesschrome .
+
+- name: Salveaza rapoartele
+  uses: actions/upload-artifact@v4
+  if: always()
+  with:
+    name: rapoarte-teste
+    path: results/
