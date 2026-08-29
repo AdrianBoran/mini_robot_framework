@@ -4,11 +4,14 @@ Library          SeleniumLibrary
 Library          RequestsLibrary 
 Metadata         TICKET-1342     
 
+*** Variables ***
+${BROWSER}    chrome
+
 *** Test Cases *** 
 Browserul Porneste Si Aplicatia Raspunde
   [documentation]  AL DOILEA
   [Tags]  smoke REQ-101
-  Open Browser    https://practicesoftwaretesting.com    chrome
+  Open Browser    https://practicesoftwaretesting.com    ${BROWSER}
   Wait Until Page Contains    Toolshop    timeout=20s
   Close Browser
 
