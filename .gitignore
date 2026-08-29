@@ -1,0 +1,24 @@
+# Mediu virtual Python — se recreeaza cu pip install -r requirements.txt
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Rezultatele testelor — se regenereaza la fiecare rulare
+results/
+output.xml
+log.html
+report.html
+*.png
+
+# Setari de editor
+.vscode/
+.idea/
+
+# Fisiere de sistem
+.DS_Store
+Thumbs.db
+
+# Secrete — NICIODATA in repo
+.env
+credentials.json
