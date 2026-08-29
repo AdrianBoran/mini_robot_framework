@@ -26,7 +26,8 @@ jobs:
       - name: Analiza statica
         run: |
           pip install robotframework-robocop
-          robocop --exit-zero .
+          robocop check . || true
+        continue-on-error: true
 
       - name: Verifica sintaxa
         run: robot --dryrun --outputdir results/dryrun .
