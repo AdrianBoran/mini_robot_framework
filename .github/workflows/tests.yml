@@ -23,6 +23,11 @@ jobs:
       - name: Instaleaza dependentele
         run: pip install -r requirements.txt
 
+      - name: Analiza statica
+        run: |
+          pip install robotframework-robocop
+          robocop --exit-zero .
+
       - name: Verifica sintaxa
         run: robot --dryrun --outputdir results/dryrun .
 

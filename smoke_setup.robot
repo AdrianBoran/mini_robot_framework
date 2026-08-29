@@ -1,23 +1,25 @@
-*** Settings *** 
-Documentation    Verifică faptul că mediul e configurat corect 
-Library          SeleniumLibrary 
-Library          RequestsLibrary 
-Metadata         TICKET-1342     
+*** Settings ***
+Documentation       Verifică faptul că mediul e configurat corect
+Metadata            TICKET-1342
+
+Library             SeleniumLibrary
+Library             RequestsLibrary
+
 
 *** Variables ***
-${URL}        https://practicesoftwaretesting.com
-${BROWSER}    chrome
-${OPTIUNI}    add_argument("--headless=new"); add_argument("--no-sandbox"); add_argument("--disable-dev-shm-usage")
+${URL}          https://practicesoftwaretesting.com
+${BROWSER}      chrome
+${OPTIUNI}      add_argument("--headless=new"); add_argument("--no-sandbox"); add_argument("--disable-dev-shm-usage")
 
-*** Test Cases *** 
+
+*** Test Cases ***
 Browserul Porneste Si Aplicatia Raspunde
-  [documentation]  AL DOILEA
-  [Tags]  smoke REQ-101
-  Open Browser    ${URL}    ${BROWSER}    options=${OPTIUNI}
-  #Wait Until Page Contains    title    timeout=60s
-  Close Browser
+    [Documentation]    AL DOILEA
+    [Tags]    smoke req-101
+    Open Browser    ${URL}    ${BROWSER}    options=${OPTIUNI}
+    # Wait Until Page Contains    title    timeout=60s
+    Close Browser
 
-
-API-ul Raspunde 
+API-ul Raspunde
     ${resp}=    GET    https://api.practicesoftwaretesting.com/products
     Should Be Equal As Integers    ${resp.status_code}    200
