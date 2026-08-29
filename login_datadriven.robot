@@ -18,7 +18,7 @@ ${MESAJ_EROARE}  css=h3[data-test="error"]
 *** Test Cases ***      UTILIZATOR        PAROLA          MESAJ_ASTEPTAT
 Utilizator Blocat       locked_out_user   ${PASSWORD}       locked out
 Parola Gresita          standard_user     gresit123         do not match
-Utilizator Inexistent   nu_exista         ${PASSWORD}       do not match2
+Utilizator Inexistent   nu_exista         ${PASSWORD}       do not match
 Campuri Goale           ${EMPTY}          ${EMPTY}          Username is required
 
 *** Keywords ***
