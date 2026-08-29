@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.7 on win32)" generated="2026-08-29T12:25:55.813017" rpa="false" schemaversion="5">
+<suite id="s1" name="Login2" source="D:\toolshop-tests\login2.robot">
+<test id="s1-t1" name="Autentificare Cu Credentiale Valide" line="20">
+<kw name="Deschide Pagina De Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-29T12:25:56.439738" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-29T12:25:56.438303" elapsed="3.282727"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_USER}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-08-29T12:25:59.721443" elapsed="0.048197"/>
+</kw>
+<status status="PASS" start="2026-08-29T12:25:56.437020" elapsed="3.334053"/>
+</kw>
+<kw name="Autentifica">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-08-29T12:25:59.775754" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>${INPUT_USER}</arg>
+<arg>${user}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-08-29T12:25:59.775132" elapsed="0.199314"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-08-29T12:25:59.975384" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg time="2026-08-29T12:26:00.020865" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-08-29T12:25:59.974746" elapsed="0.124305"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-08-29T12:26:00.100739" level="INFO">Clicking button 'id=login-button'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-08-29T12:26:00.099610" elapsed="0.194840"/>
+</kw>
+<arg>${USER}</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2026-08-29T12:25:59.774224" elapsed="0.520451"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LISTA_PRODUSE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-08-29T12:26:00.295289" elapsed="0.046982"/>
+</kw>
+<kw name="Inchide Browserul" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-08-29T12:26:00.345747" elapsed="0.001159"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-29T12:26:00.347456" elapsed="2.918262"/>
+</kw>
+<status status="PASS" start="2026-08-29T12:26:00.344749" elapsed="2.921601"/>
+</kw>
+<tag>smoke</tag>
+<status status="PASS" start="2026-08-29T12:25:56.435475" elapsed="6.831644"/>
+</test>
+<doc>Teste de autentificare</doc>
+<status status="PASS" start="2026-08-29T12:25:55.816295" elapsed="7.453977"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="Login2" id="s1" pass="1" fail="0" skip="0">Login2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

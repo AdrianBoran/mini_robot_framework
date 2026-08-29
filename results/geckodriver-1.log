@@ -1,0 +1,28 @@
+1787925510004	geckodriver	INFO	Listening on 127.0.0.1:49738
+1787925513233	mozrunner::runner	INFO	Running command: "C:\\Users\\Adrian\\.cache\\selenium\\firefox\\win64\\154.0.1\\firefox.exe" "--marionette" "--remote-debuggi ... " "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Adrian\\AppData\\Local\\Temp\\rust_mozprofileGEuz0J"
+Dynamically enable window occlusion 0
+1787925515925	Marionette	INFO	Marionette enabled
+1787925516063	Marionette	INFO	Listening on port 49752
+WebDriver BiDi listening on ws://127.0.0.1:49739
+Read port: 49752
+1787925516480	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1787925521121	Marionette	INFO	Stopped listening on port 49752
+console.error: RSLoader: 
+  Failed to retrieve recipes from Remote Settings
+  Message: Error: Could not sync nimbus-secure-experiments: get-exception
+  Stack:
+    RemoteSettingsSyncError@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:1415:5
+getRecipesFromCollection@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:687:13
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:587:17
+quit@chrome://remote/content/shared/Browser.sys.mjs:102:22
+quit@chrome://remote/content/marionette/driver.sys.mjs:2891:44
+dispatch@chrome://remote/content/marionette/server.sys.mjs:317:49
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/<@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/<@chrome://remote/content/marionette/transport.sys.mjs:494:20
+
+JavaScript error: resource://gre/modules/PrivateBrowsingUtils.sys.mjs, line 50: TypeError: can't access property "QueryInterface", aWindow.docShell is null
+Dynamically enable window occlusion 1
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 465: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+[ERROR shell_windows::taskbar::winrt] Error delaying before restoring the default AUMID, incorrect app might prompt to pin: NS_ERROR_NOT_AVAILABLE

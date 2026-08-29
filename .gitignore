@@ -5,11 +5,11 @@ __pycache__/
 *.pyc
 
 # Rezultatele testelor — se regenereaza la fiecare rulare
-results/
-output.xml
-log.html
-report.html
-*.png
+#results/
+#output.xml
+#log.html
+#report.html
+#*.png
 
 # Setari de editor
 .vscode/

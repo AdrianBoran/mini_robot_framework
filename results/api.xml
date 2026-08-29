@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.7 on win32)" generated="2026-08-29T12:26:27.812937" rpa="false" schemaversion="5">
+<suite id="s1" name="Api" source="D:\toolshop-tests\api.robot">
+<test id="s1-t1" name="Preluarea Unei Postari Returneaza Structura Corecta" line="11">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2026-08-29T12:26:28.084275" level="INFO">GET Request : url=https://jsonplaceholder.typicode.com/posts/1 
+ path_url=/posts/1 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-08-29T12:26:28.084862" level="INFO">GET Response : url=https://jsonplaceholder.typicode.com/posts/1 
+ status=200, reason=OK 
+ headers={'Date': 'Sat, 29 Aug 2026 09:26:28 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'Cache-Control': 'max-age=43200', 'etag': 'W/"124-yiKdLzqO5gfBrJFrcdJ8Yq0LGnU"', 'expires': '-1', 'nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'pragma': 'no-cache', 'report-to': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=vm67FVLNHsCgrFgubRa04ooDeMKdgwXS9H3i2IbjuoY%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1785194657"}],"max_age":3600}', 'reporting-endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=vm67FVLNHsCgrFgubRa04ooDeMKdgwXS9H3i2IbjuoY%3D&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;ts=1785194657"', 'Server': 'cloudflare', 'vary': 'Origin, Accept-Encoding', 'via': '2.0 heroku-router', 'x-content-type-options': 'nosniff', 'x-powered-by': 'Express', 'x-ratelimit-limit': '1000', 'x-ratelimit-remaining': '999', 'x-ratelimit-reset': '1785194663', 'Age': '18633', 'cf-cache-status': 'HIT', 'Content-Encoding': 'zstd', 'CF-RAY': 'a32a83aa2c4be467-OTP', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={
+  "userId": 1,
+  "id": 1,
+  "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+} 
+ </msg>
+<msg time="2026-08-29T12:26:28.085468" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<var>${resp}</var>
+<arg>${API_URL}/posts/1</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2026-08-29T12:26:28.006206" elapsed="0.079395"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-08-29T12:26:28.089839" level="INFO">${body} = {'userId': 1, 'id': 1, 'title': 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit', 'body': 'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit...</msg>
+<var>${body}</var>
+<arg>${resp.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-08-29T12:26:28.087007" elapsed="0.002940"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${body}</arg>
+<arg>title</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2026-08-29T12:26:28.090893" elapsed="0.000666"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${body}</arg>
+<arg>userId</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2026-08-29T12:26:28.092370" elapsed="0.000688"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-08-29T12:26:28.095056" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${body}[id]</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-08-29T12:26:28.093845" elapsed="0.001468"/>
+</kw>
+<doc>Verifica endpointul de citire si campurile obligatorii</doc>
+<tag>api</tag>
+<status status="PASS" start="2026-08-29T12:26:28.003693" elapsed="0.092253"/>
+</test>
+<test id="s1-t2" name="Crearea Unei Postari Returneaza 201" line="20">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-08-29T12:26:28.100276" level="INFO">${payload} = {'title': 'test', 'body': 'continut', 'userId': 1}</msg>
+<var>${payload}</var>
+<arg>title=test</arg>
+<arg>body=continut</arg>
+<arg>userId=${1}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-08-29T12:26:28.098483" elapsed="0.001875"/>
+</kw>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2026-08-29T12:26:28.516854" level="INFO">POST Request : url=https://jsonplaceholder.typicode.com/posts 
+ path_url=/posts 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '50', 'Content-Type': 'application/json'} 
+ body=b'{"title": "test", "body": "continut", "userId": 1}' 
+ </msg>
+<msg time="2026-08-29T12:26:28.517000" level="INFO">POST Response : url=https://jsonplaceholder.typicode.com/posts 
+ status=201, reason=Created 
+ headers={'Date': 'Sat, 29 Aug 2026 09:26:28 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '71', 'Connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'access-control-expose-headers': 'Location', 'Cache-Control': 'no-cache', 'etag': 'W/"47-GZ9TLOsx89aDporNybyMN/VvrSY"', 'expires': '-1', 'location': 'https://jsonplaceholder.typicode.com/posts/101', 'nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'pragma': 'no-cache', 'report-to': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=9Ue%2FEtgmK%2F0OpaHVf8HbqvCgZa1K0r06fO69LVf9DJQ%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1787995588"}],"max_age":3600}', 'reporting-endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=9Ue%2FEtgmK%2F0OpaHVf8HbqvCgZa1K0r06fO69LVf9DJQ%3D&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;ts=1787995588"', 'Server': 'cloudflare', 'vary': 'Origin, X-HTTP-Method-Override, Accept-Encoding', 'via': '2.0 heroku-router', 'x-content-type-options': 'nosniff', 'x-powered-by': 'Express', 'x-ratelimit-limit': '1000', 'x-ratelimit-remaining': '999', 'x-ratelimit-reset': '1787995620', 'cf-cache-status': 'DYNAMIC', 'CF-RAY': 'a32a83aaae7270d1-OTP', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={
+  "title": "test",
+  "body": "continut",
+  "userId": 1,
+  "id": 101
+} 
+ </msg>
+<msg time="2026-08-29T12:26:28.517195" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
+<var>${resp}</var>
+<arg>${API_URL}/posts</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2026-08-29T12:26:28.100903" elapsed="0.416335"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${resp.json()}[id] &gt; 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-08-29T12:26:28.517774" elapsed="0.001361"/>
+</kw>
+<doc>Verifica endpointul de creare</doc>
+<tag>api</tag>
+<status status="PASS" start="2026-08-29T12:26:28.097212" elapsed="0.422410"/>
+</test>
+<test id="s1-t3" name="Resursa Inexistenta Returneaza 404" line="29">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2026-08-29T12:26:28.580286" level="INFO">GET Request : url=https://jsonplaceholder.typicode.com/posts/999999 
+ path_url=/posts/999999 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-08-29T12:26:28.580502" level="INFO">GET Response : url=https://jsonplaceholder.typicode.com/posts/999999 
+ status=404, reason=Not Found 
+ headers={'Date': 'Sat, 29 Aug 2026 09:26:28 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'Cache-Control': 'max-age=43200', 'etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'expires': '-1', 'nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'pragma': 'no-cache', 'report-to': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=dIdbjmDyPY3ejUe%2FJ4YXYCEblkYkYU71T8kAI%2Fj2R5k%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1787987049"}],"max_age":3600}', 'reporting-endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=dIdbjmDyPY3ejUe%2FJ4YXYCEblkYkYU71T8kAI%2Fj2R5k%3D&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;ts=1787987049"', 'Server': 'cloudflare', 'vary': 'Origin, Accept-Encoding', 'via': '2.0 heroku-router', 'x-content-type-options': 'nosniff', 'x-powered-by': 'Express', 'x-ratelimit-limit': '1000', 'x-ratelimit-remaining': '998', 'x-ratelimit-reset': '1787987100', 'Age': '8539', 'cf-cache-status': 'HIT', 'CF-RAY': 'a32a83ad4e6de42d-OTP', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={} 
+ </msg>
+<arg>${API_URL}/posts/999999</arg>
+<arg>expected_status=404</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2026-08-29T12:26:28.521416" elapsed="0.059255"/>
+</kw>
+<doc>Cazul negativ: ce se intampla la o resursa care nu exista</doc>
+<tag>api</tag>
+<tag>negative</tag>
+<status status="PASS" start="2026-08-29T12:26:28.520513" elapsed="0.060583"/>
+</test>
+<test id="s1-t4" name="Lista De Postari Contine Elemente" line="34">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2026-08-29T12:26:28.635844" level="INFO">GET Request : url=https://jsonplaceholder.typicode.com/posts 
+ path_url=/posts 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-08-29T12:26:28.635995" level="INFO">GET Response : url=https://jsonplaceholder.typicode.com/posts 
+ status=200, reason=OK 
+ headers={'Date': 'Sat, 29 Aug 2026 09:26:28 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'Cache-Control': 'max-age=43200', 'Content-Encoding': 'gzip', 'etag': 'W/"6b80-Ybsq/K6GwwqrYkAsFxqDXGC7DoM"', 'expires': '-1', 'nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'pragma': 'no-cache', 'report-to': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=IHlsld%2FAUQP%2F3UgLsAc%2BAFEWEtc2pKk7Nzklz3kmg9E%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1787214875"}],"max_age":3600}', 'reporting-endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=IHlsld%2FAUQP%2F3UgLsAc%2BAFEWEtc2pKk7Nzklz3kmg9E%3D&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;ts=1787214875"', 'Server': 'cloudflare', 'vary': 'Origin, Accept-Encoding', 'via': '2.0 heroku-router', 'x-content-type-options': 'nosniff', 'x-powered-by': 'Express', 'x-ratelimit-limit': '1000', 'x-ratelimit-remaining': '999', 'x-ratelimit-reset': '1787214915', 'Age': '14206', 'cf-cache-status': 'HIT', 'CF-RAY': 'a32a83ad9f47ca28-OTP', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body=[
+  {
+    "userId": 1,
+    "id": 1,
+    "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+    "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+  },
+  {
+    "userId": 1,
+    "id": 2,
+    "title": "qui est esse",
+    "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+  },
+  {
+    "userId": 1,
+    "id": 3,
+    "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
+    "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
+  },
+  {
+    "userId": 1,
+    "id": 4,
+    "title": "eum et est occaecati",
+    "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit"
+  },
+  {
+    "userId": 1,
+    "id": 5,
+    "title": "nesciunt quas odio",
+    "body": "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque"
+  },
+  {
+    "userId": 1,
+    "id": 6,
+    "title": "dolorem eum magni eos aperiam quia",
+    "body": "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae"
+  },
+  {
+    "userId": 1,
+    "id": 7,
+    "title": "magnam facilis autem",
+    "body": "dolore placeat quibusdam ea quo vitae\nmagni quis enim qui quis quo nemo aut saepe\nquidem repellat excepturi ut quia\nsunt ut sequi eos ea sed quas"
+  },
+  {
+    "userId": 1,
+    "id": 8,
+    "title": "dolorem dolore est ipsam",
+    "body": "dignissimos aperiam dolorem qui eum\nfacilis quibusdam animi sint suscipit qui sint possimus cum\nquaerat magni maiores excepturi\nipsam ut commodi dolor voluptatum modi aut vitae"
+  },
+  {
+    "userId": 1,
+    "id": 9,
+    "title": "nesciunt iure omnis dolorem tempora et accusantium",
+    "body": "consectetur animi nesciunt iure dolore\nenim quia ad\nveniam autem ut quam aut nobis\net est aut quod aut provident voluptas autem voluptas"
+  },
+  {
+    "userId": 1,
+    "id": 10,
+    "title": "optio molestias id quia eum",
+    "body": "quo et expedita modi cum officia vel magni\ndoloribus qui repudiandae\nvero nisi sit\nquos veniam quod sed accusamus veritatis error"
+  },
+  {
+    "userId": 2,
+    "id": 11,
+    "title": "et ea vero quia laudantium autem",
+    "body": "delectus reiciendis molestiae occaecati non minima eveniet qui voluptatibus\naccusamus in eum beatae sit\nvel qui neque voluptates ut commodi qui incidunt\nut animi commodi"
+  },
+  {
+    "userId": 2,
+    "id": 12,
+    "title": "in quibusdam tempore odit est dolorem",
+    "body": "itaque id aut magnam\npraesentium quia et ea odit et ea voluptas et\nsapiente quia nihil amet occaecati quia id voluptatem\nincidunt ea est distinctio odio"
+  },
+  {
+    "userId": 2,
+    "id": 13,
+    "title": "dolorum ut in voluptas mollitia et saepe quo animi",
+    "body": "aut dicta possimus sint mollitia voluptas commodi quo doloremque\niste corrupti reiciendis voluptatem eius rerum\nsit cumque quod eligendi laborum minima\nperferendis recusandae assumenda consectetur porro architecto ipsum ipsam"
+  },
+  {
+    "userId": 2,
+    "id": 14,
+    "title": "voluptatem eligendi optio",
+    "body": "fuga et accusamus dolorum perferendis illo voluptas\nnon doloremque neque facere\nad qui dolorum molestiae beatae\nsed aut voluptas totam sit illum"
+  },
+  {
+    "userId": 2,
+    "id": 15,
+    "title": "eveniet quod temporibus",
+    "body": "reprehenderit quos placeat\nvelit minima officia dolores impedit repudiandae molestiae nam\nvoluptas recusandae quis delectus\nofficiis harum fugiat vitae"
+  },
+  {
+    "userId": 2,
+    "id": 16,
+    "title": "sint suscipit perspiciatis velit dolorum rerum ipsa laboriosam odio",
+    "body": "suscipit nam nisi quo aperiam aut\nasperiores eos fugit maiores voluptatibus quia\nvoluptatem quis ullam qui in alias quia est\nconsequatur magni mollitia accusamus ea nisi voluptate dicta"
+  },
+  {
+    "userId": 2,
+    "id": 17,
+    "title": "fugit voluptas sed molestias voluptatem provident",
+    "body": "eos voluptas et aut odit natus earum\naspernatur fuga molestiae ullam\ndeserunt ratione qui eos\nqui nihil ratione nemo velit ut aut id quo"
+  },
+  {
+    "userId": 2,
+    "id": 18,
+    "title": "voluptate et itaque vero tempora molestiae",
+    "body": "eveniet quo quis\nlaborum totam consequatur non dolor\nut et est repudiandae\nest voluptatem vel debitis et magnam"
+  },
+  {
+    "userId": 2,
+    "id": 19,
+    "title": "adipisci placeat illum aut reiciendis qui",
+    "body": "illum quis cupiditate provident sit magnam\nea sed aut omnis\nveniam maiores ullam consequatur atque\nadipisci quo iste expedita sit quos voluptas"
+  },
+  {
+    "userId": 2,
+    "id": 20,
+    "title": "doloribus ad provident suscipit at",
+    "body": "qui consequuntur ducimus possimus quisquam amet similique\nsuscipit porro ipsam amet\neos veritatis officiis exercitationem vel fugit aut necessitatibus totam\nomnis rerum consequatur expedita quidem cumque explicabo"
+  },
+  {
+    "userId": 3,
+    "id": 21,
+    "title": "asperiores ea ipsam voluptatibus modi minima quia sint",
+    "body": "repellat aliquid praesentium dolorem quo\nsed totam minus non itaque\nnihil labore molestiae sunt dolor eveniet hic recusandae veniam\ntempora et tenetur expedita sunt"
+  },
+  {
+    "userId": 3,
+    "id": 22,
+    "title": "dolor sint quo a velit explicabo quia nam",
+    "body": "eos qui et ipsum ipsam suscipit aut\nsed omnis non odio\nexpedita earum mollitia molestiae aut atque rem suscipit\nnam impedit esse"
+  },
+  {
+    "userId": 3,
+    "id": 23,
+    "title": "maxime id vitae nihil numquam",
+    "body": "veritatis unde neque eligendi\nquae quod architecto quo neque vitae\nest illo sit tempora doloremque fugit quod\net et vel beatae sequi ullam sed tenetur perspiciatis"
+  },
+  {
+    "userId": 3,
+    "id": 24,
+    "title": "autem hic labore sunt dolores incidunt",
+    "body": "enim et ex nulla\nomnis voluptas quia qui\nvoluptatem consequatur numquam aliquam sunt\ntotam recusandae id dignissimos aut sed asperiores deserunt"
+  },
+  {
+    "userId": 3,
+    "id": 25,
+    "title": "rem alias distinctio quo quis",
+    "body": "ullam consequatur ut\nomnis quis sit vel consequuntur\nipsa eligendi ipsum molestiae et omnis error nostrum\nmolestiae illo tempore quia et distinctio"
+  },
+  {
+    "userId": 3,
+    "id": 26,
+    "title": "est et quae odit qui non",
+    "body": "similique esse doloribus nihil accusamus\nomnis dolorem fuga consequuntur reprehenderit fugit recusandae temporibus\nperspiciatis cum ut laudantium\nomnis aut molestiae vel vero"
+  },
+  {
+    "userId": 3,
+    "id": 27,
+    "title": "quasi id et eos tenetur aut quo autem",
+    "body": "eum sed dolores ipsam sint possimus debitis occaecati\ndebitis qui qui et\nut placeat enim earum aut odit facilis\nconsequatur suscipit necessitatibus rerum sed inventore temporibus consequatur"
+  },
+  {
+    "userId": 3,
+    "id": 28,
+    "title": "delectus ullam et corporis nulla voluptas sequi",
+    "body": "non et quaerat ex quae ad maiores\nmaiores recusandae totam aut blanditiis mollitia quas illo\nut voluptatibus voluptatem\nsimilique nostrum eum"
+  },
+  {
+    "userId": 3,
+    "id": 29,
+    "title": "iusto eius quod necessitatibus culpa ea",
+    "body": "odit magnam ut saepe sed non qui\ntempora atque nihil\naccusamus illum doloribus illo dolor\neligendi repudiandae odit magni similique sed cum maiores"
+  },
+  {
+    "userId": 3,
+    "id": 30,
+    "title": "a quo magni similique perferendis",
+    "body": "alias dolor cumque\nimpedit blanditiis non eveniet odio maxime\nblanditiis amet eius quis tempora quia autem rem\na provident perspiciatis quia"
+  },
+  {
+    "userId": 4,
+    "id": 31,
+    "title": "ullam ut quidem id aut vel consequuntur",
+    "body": "debitis eius sed quibusdam non quis consectetur vitae\nimpedit ut qui consequatur sed aut in\nquidem sit nostrum et maiores adipisci atque\nquaerat voluptatem adipisci repudiandae"
+  },
+  {
+    "userId": 4,
+    "id": 32,
+    "title": "doloremque illum aliquid sunt",
+    "body": "deserunt eos nobis asperiores et hic\nest debitis repellat molestiae optio\nnihil ratione ut eos beatae quibusdam distinctio maiores\nearum voluptates et aut adipisci ea maiores voluptas maxime"
+  },
+  {
+    "userId": 4,
+    "id": 33,
+    "title": "qui explicabo molestiae dolorem",
+    "body": "rerum ut et numquam laborum odit est sit\nid qui sint in\nquasi tenetur tempore aperiam et quaerat qui in\nrerum officiis sequi cumque quod"
+  },
+  {
+    "userId": 4,
+    "id": 34,
+    "title": "magnam ut rerum iure",
+    "body": "ea velit perferendis earum ut voluptatem voluptate itaque iusto\ntotam pariatur in\nnemo voluptatem voluptatem autem magni tempora minima in\nest distinctio qui assumenda accusamus dignissimos officia nesciunt nobis"
+  },
+  {
+    "userId": 4,
+    "id": 35,
+    "title": "id nihil consequatur molestias animi provident",
+    "body": "nisi error delectus possimus ut eligendi vitae\nplaceat eos harum cupiditate facilis reprehenderit voluptatem beatae\nmodi ducimus quo illum voluptas eligendi\net nobis quia fugit"
+  },
+  {
+    "userId": 4,
+    "id": 36,
+    "title": "fuga nam accusamus voluptas reiciendis itaque",
+    "body": "ad mollitia et omnis minus architecto odit\nvoluptas doloremque maxime aut non ipsa qui alias veniam\nblanditiis culpa aut quia nihil cumque facere et occaecati\nqui aspernatur quia eaque ut aperiam inventore"
+  },
+  {
+    "userId": 4,
+    "id": 37,
+    "title": "provident vel ut sit ratione est... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg time="2026-08-29T12:26:28.637681" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<var>${resp}</var>
+<arg>${API_URL}/posts</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2026-08-29T12:26:28.584354" elapsed="0.053395"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-08-29T12:26:28.640742" level="INFO">${lista} = [{'userId': 1, 'id': 1, 'title': 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit', 'body': 'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderi...</msg>
+<var>${lista}</var>
+<arg>${resp.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-08-29T12:26:28.638202" elapsed="0.002649"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2026-08-29T12:26:28.642206" level="INFO">Length is 100.</msg>
+<msg time="2026-08-29T12:26:28.642396" level="INFO">${numar} = 100</msg>
+<var>${numar}</var>
+<arg>${lista}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2026-08-29T12:26:28.641307" elapsed="0.001139"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${numar} &gt; 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-08-29T12:26:28.642855" elapsed="0.000898"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${lista}[0]</arg>
+<arg>title</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2026-08-29T12:26:28.644259" elapsed="0.000352"/>
+</kw>
+<doc>Verifica faptul ca endpointul de listare intoarce date</doc>
+<tag>api</tag>
+<status status="PASS" start="2026-08-29T12:26:28.582668" elapsed="0.062305"/>
+</test>
+<doc>Teste de API cu RequestsLibrary</doc>
+<status status="PASS" start="2026-08-29T12:26:27.815652" elapsed="0.830338"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="4" fail="0" skip="0">api</stat>
+<stat pass="1" fail="0" skip="0">negative</stat>
+</tag>
+<suite>
+<stat name="Api" id="s1" pass="4" fail="0" skip="0">Api</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

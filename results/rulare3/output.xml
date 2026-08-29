@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.7 on win32)" generated="2026-08-28T21:57:48.154799" rpa="false" schemaversion="5">
+<suite id="s1" name="Login" source="D:\toolshop-tests\login.robot">
+<test id="s1-t1" name="Autentificare Cu Credentiale Valide" line="13">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-28T21:57:48.665431" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-28T21:57:48.665061" elapsed="2.133691"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-08-28T21:57:50.806195" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>id=user-name</arg>
+<arg>${USER}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-08-28T21:57:50.804165" elapsed="0.424827"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-08-28T21:57:51.231636" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-08-28T21:57:51.230643" elapsed="0.320955"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-08-28T21:57:51.552481" level="INFO">Clicking button 'id=login-button'.</msg>
+<arg>id=login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-08-28T21:57:51.552116" elapsed="0.181286"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-28T21:57:51.782451" level="INFO">Current page contains element 'class=inventory_list'.</msg>
+<arg>class=inventory_list</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-28T21:57:51.734821" elapsed="0.047854"/>
+</kw>
+<kw name="Run Keyword If Test Failed" owner="BuiltIn" type="TEARDOWN">
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-08-28T21:57:51.783521" elapsed="0.000770"/>
+</kw>
+<status status="PASS" start="2026-08-28T21:57:48.663332" elapsed="3.121753"/>
+</test>
+<test id="s1-t2" name=" ... AND" line="21">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-28T21:57:51.788051" elapsed="2.411527"/>
+</kw>
+<status status="PASS" start="2026-08-28T21:57:51.787102" elapsed="2.413876"/>
+</test>
+<doc>Primul meu test in Robot Framework</doc>
+<status status="PASS" start="2026-08-28T21:57:48.157260" elapsed="6.046576"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login" id="s1" pass="2" fail="0" skip="0">Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

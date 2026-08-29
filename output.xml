@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.7 on win32)" generated="2026-08-29T11:28:54.335316" rpa="false" schemaversion="5">
+<suite id="s1" name="Login2" source="D:\toolshop-tests\login2.robot">
+<test id="s1-t1" name="Autentificare Cu Credentiale Valide" line="20">
+<kw name="Deschide Pagina De Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.937664" elapsed="0.000294"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_USER}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.938218" elapsed="0.000277"/>
+</kw>
+<status status="PASS" start="2026-08-29T11:28:54.935051" elapsed="0.003640"/>
+</kw>
+<kw name="Autentifica">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${INPUT_USER}</arg>
+<arg>${user}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.939777" elapsed="0.000173"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<arg>${INPUT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.940163" elapsed="0.000137"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.940494" elapsed="0.000118"/>
+</kw>
+<arg>${USER}</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2026-08-29T11:28:54.939298" elapsed="0.001431"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LISTA_PRODUSE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.941106" elapsed="0.000113"/>
+</kw>
+<kw name="Inchide Browserul" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.942959" elapsed="0.000096"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-08-29T11:28:54.942273" elapsed="0.000882"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.943338" elapsed="0.000080"/>
+</kw>
+<status status="PASS" start="2026-08-29T11:28:54.941800" elapsed="0.001717"/>
+</kw>
+<tag>smoke</tag>
+<status status="PASS" start="2026-08-29T11:28:54.930781" elapsed="0.013102"/>
+</test>
+<test id="s1-t2" name="Autentificare Cu Parola Gresita" line="25">
+<kw name="Deschide Pagina De Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.946788" elapsed="0.000137"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_USER}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.947110" elapsed="0.001425"/>
+</kw>
+<status status="PASS" start="2026-08-29T11:28:54.946052" elapsed="0.003048"/>
+</kw>
+<kw name="Autentifica">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${INPUT_USER}</arg>
+<arg>${user}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.973519" elapsed="0.000222"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<arg>${INPUT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.974017" elapsed="0.000177"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.974456" elapsed="0.000451"/>
+</kw>
+<arg>${USER}</arg>
+<arg>parola_gresita</arg>
+<status status="PASS" start="2026-08-29T11:28:54.972966" elapsed="0.002084"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MESAJ_EROARE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.992746" elapsed="0.000231"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${MESAJ_EROARE}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.993647" elapsed="0.000207"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>do not match</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.994344" elapsed="0.000377"/>
+</kw>
+<kw name="Inchide Browserul" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.996042" elapsed="0.000075"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-08-29T11:28:54.995622" elapsed="0.000563"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.996322" elapsed="0.000060"/>
+</kw>
+<status status="PASS" start="2026-08-29T11:28:54.995262" elapsed="0.001190"/>
+</kw>
+<tag>negative</tag>
+<status status="PASS" start="2026-08-29T11:28:54.945096" elapsed="0.051576"/>
+</test>
+<test id="s1-t3" name="Autentificare Cu Utilizator Blocat" line="32">
+<kw name="Deschide Pagina De Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.998894" elapsed="0.000205"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_USER}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:54.999370" elapsed="0.000282"/>
+</kw>
+<status status="PASS" start="2026-08-29T11:28:54.998161" elapsed="0.001624"/>
+</kw>
+<kw name="Autentifica">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${INPUT_USER}</arg>
+<arg>${user}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:55.000596" elapsed="0.000125"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<arg>${INPUT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:55.000876" elapsed="0.000099"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:55.001115" elapsed="0.000080"/>
+</kw>
+<arg>locked_out_user</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2026-08-29T11:28:55.000273" elapsed="0.000997"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MESAJ_EROARE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:55.001598" elapsed="0.000124"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${MESAJ_EROARE}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:55.002280" elapsed="0.000126"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>locked out</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:55.002841" elapsed="0.000363"/>
+</kw>
+<kw name="Inchide Browserul" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:55.006328" elapsed="0.000123"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-08-29T11:28:55.005454" elapsed="0.001107"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2026-08-29T11:28:55.006790" elapsed="0.000095"/>
+</kw>
+<status status="PASS" start="2026-08-29T11:28:55.003823" elapsed="0.003184"/>
+</kw>
+<tag>blocat</tag>
+<tag>negative</tag>
+<status status="PASS" start="2026-08-29T11:28:54.997499" elapsed="0.009754"/>
+</test>
+<doc>Teste de autentificare</doc>
+<status status="PASS" start="2026-08-29T11:28:54.337811" elapsed="0.670818"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">blocat</stat>
+<stat pass="2" fail="0" skip="0">negative</stat>
+<stat pass="1" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="Login2" id="s1" pass="3" fail="0" skip="0">Login2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
