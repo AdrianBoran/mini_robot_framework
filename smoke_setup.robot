@@ -14,7 +14,7 @@ Browserul Porneste Si Aplicatia Raspunde
   [documentation]  AL DOILEA
   [Tags]  smoke REQ-101
   Open Browser    ${URL}    ${BROWSER}    options=${OPTIUNI}
-  Wait Until Page Contains    Toolshop    timeout=60s
+  Wait Until Page Contains    title    timeout=60s
   Close Browser
 
 
